@@ -11,17 +11,19 @@ public class Zone
 		this.setZid("Ongeldig");
 		azone = new ArrayList<String>();
 	}
+	public Zone(String id)
+	{
+		this.setZid(id);
+		azone = new ArrayList<String>();
+	}
 	public Zone(String id, ArrayList<String> zones)
 	{
 		this.setZid(id);
 		azone = new ArrayList<String>(zones.size());
 		azone = zones;
 	}
-	public Zone(String id)
-	{
-		this.setZid(id);
-		azone = new ArrayList<String>();
-	}
+
+	//Setters en getters
 	public String getZid()
 	{
 		return zid;
@@ -38,8 +40,13 @@ public class Zone
 	{
 		azone = zones;
 	}
+	//Andere functies
 	public void addAzone(String zone)
 	{
 		azone.add(zone);
+	}
+	public String toString()
+	{
+		return " Zone met ID: "+this.getZid()+" en aanliggende zones: "+this.getAzone()+" ";
 	}
 }

@@ -8,16 +8,16 @@ public class Reservatie {
 	private int dag;
 	private int startTijd;
 	private int duurTijd;
-	private ArrayList<Auto> autos;
+	private ArrayList<String> autoIDs;
 	private int penalty1;
 	private int penalty2;
-	public Reservatie(String nid, Zone nzone, int ndag, int nstTijd, int ndtijd, ArrayList<Auto> nautos, int pen1, int pen2) {
+	public Reservatie(String nid, Zone nzone, int ndag, int nstTijd, int ndtijd, ArrayList<String> nautoIDs, int pen1, int pen2) {
 		id = nid;
 		zone = nzone;
 		dag = ndag;
 		startTijd = nstTijd;
 		duurTijd = ndtijd;
-		autos = nautos;
+		autoIDs = nautoIDs;
 		penalty1 = pen1;
 		penalty2 = pen2;
 	}
@@ -51,11 +51,11 @@ public class Reservatie {
 	public void setStartTijd(int startTijd) {
 		this.startTijd = startTijd;
 	}
-	public ArrayList<Auto> getAutos() {
-		return autos;
+	public ArrayList<String> getAutoIDs() {
+		return autoIDs;
 	}
-	public void setautos(ArrayList<Auto> Autos) {
-		this.autos = Autos;
+	public void setautoIDs(ArrayList<String> AutoIDs) {
+		this.autoIDs = AutoIDs;
 	}
 	public int getPenalty1() {
 		return penalty1;
@@ -69,5 +69,8 @@ public class Reservatie {
 	public void setPenalty2(int penalty2) {
 		this.penalty2 = penalty2;
 	}
-
+	public String toString()
+	{
+		return "Request met ID: "+this.getId()+" met gevraagde zone: "+this.getZone().getZid();
+	}
 }
