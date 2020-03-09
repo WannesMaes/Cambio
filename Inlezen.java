@@ -13,6 +13,7 @@ public class Inlezen
 		String filenaam = "D:/SynologyDrive/KU Leuven/Artificiële inteligentie/Wagen labo/Cambio/src/100_5_14_25.csv";
         BufferedReader reader = null;
         String regel = "";
+        Zone startZone = new Zone();
         
         try 
         {
@@ -78,6 +79,11 @@ public class Inlezen
             			Zone z = new Zone(nieuweZone[0],nZoneIDs);
             			System.out.println(z);
             			this.getZones().add(z);
+            			//Midden zone voor initiele oplossing
+            			if(aantalZones/2 == i)
+            			{
+            				startZone = z;
+            			}
             		}
             	}
             	if(regel.contains("Vehicles"))
@@ -91,7 +97,7 @@ public class Inlezen
             		{
             			//Auto regel inlezen
             			regel = reader.readLine();
-            			Auto a = new Auto(regel);
+            			Auto a = new Auto(regel,startZone);
             			System.out.println(a);
             			this.getAutos().add(a);
             		}
@@ -147,9 +153,5 @@ public class Inlezen
 	{
 		zones = z;
 	}
-	public static void main(String[] args) 
-	{
-		new Inlezen();
 
-	}
 }
